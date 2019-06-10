@@ -20,10 +20,11 @@ const App = () => {
   }
 
   const consultarApiInfo = async () => {
-    const url = `https://theaudiodb.com/api/v1/json/1/search.php?s=${artist}`;
-    const resultado = await axios(url);
-    agregarInfo(resultado.data.artists[0]); 
-    console.log(info)
+    if(artist){
+      const url = `https://theaudiodb.com/api/v1/json/1/search.php?s=${artist}`;
+      const resultado = await axios(url);
+      agregarInfo(resultado.data.artists[0]); 
+    }
   }
 
   useEffect(
